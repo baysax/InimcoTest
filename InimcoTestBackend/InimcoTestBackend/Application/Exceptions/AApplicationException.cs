@@ -1,3 +1,5 @@
+using InimcoTestBackend.Application.Response;
+
 namespace InimcoTestBackend.Application.Exceptions;
 
 public abstract class AApplicationException: Exception

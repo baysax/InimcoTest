@@ -1,8 +1,8 @@
 using InimcoTestBackend.Application;
-using InimcoTestBackend.Application.RequestObjects;
+using InimcoTestBackend.Application.Input;
+using InimcoTestBackend.Application.Response;
 using InimcoTestBackend.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
-using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +11,18 @@ builder.Services.AddScoped<IUserInformationRepository, UserInformationFileReposi
 
 var app = builder.Build();
 
-app.MapPost("/",
+app.MapPost("/userinformation",
     async ([FromServices] IUserInformationService service, [FromBody] UserInformationInput userInformationInput) =>
-        (await service.AddUserInformationAsync(userInformationInput)).Item);
+    {
+        var (responseCode, exceptions, userInformationFeedback) = await service.AddUserInformationAsync(userInformationInput);
+        return responseCode switch
+        {
+            ResponseCode.Ok => Results.Ok(userInformationFeedback),
+            ResponseCode.Other => Results.StatusCode(500),
+            ResponseCode.Aggregate 
+                => Results.BadRequest(new {ResponseCode = responseCode, Errors = exceptions!.Select(e => e.ResponseCode)}),
+            _ => Results.BadRequest(new {ResponseCode = responseCode})
+        };
+    });
 
 app.Run();

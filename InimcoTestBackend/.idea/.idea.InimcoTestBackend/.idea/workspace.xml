@@ -9,36 +9,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3082ecaf-a805-4571-9e59-8e03f10c70f4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.InimcoTestBackend/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/Exceptions/AApplicationException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/Exceptions/AggregateApplicationException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/Exceptions/FirstNameInvalidException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/Exceptions/FirstNameNullOrEmptyException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/Exceptions/LastNameInvalidException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/Exceptions/LastNameNullOrEmptyException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/Exceptions/SocialAccountsContainsNullAddressValueException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/Exceptions/SocialAccountsNullException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/Exceptions/SocialSkillsContainsNullValueException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/Exceptions/SocialSkillsNullException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/GuardClauses.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/IUserInformationRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/IUserInformationService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/RequestObjects/SocialAccountInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/RequestObjects/UserInformationInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/Response.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/ResponseCode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Application/UserInformationService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Domain/SocialAccount.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Domain/SocialAccountType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Domain/UserInformation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Extensions/StringExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Infrastructure/UserInformationFileRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/InimcoTestBackend.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/appsettings.Development.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InimcoTestBackend/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.InimcoTestBackend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InimcoTestBackend/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +40,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.32572114" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -117,15 +89,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1660287341235</updated>
-      <workItem from="1660287348008" duration="14676000" />
+      <workItem from="1660287348008" duration="15734000" />
+      <workItem from="1660578168059" duration="7556000" />
     </task>
+    <task id="LOCAL-00001" summary="Backend: everything up until the REST api">
+      <created>1660307152833</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1660307152833</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -140,5 +121,52 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Backend: everything up until the REST api" />
+    <option name="LAST_COMMIT_MESSAGE" value="Backend: everything up until the REST api" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/InimcoTestBackend/Application/UserInformationService.cs</url>
+          <line>26</line>
+          <properties documentPath="$PROJECT_DIR$/InimcoTestBackend/Application/UserInformationService.cs" initialLine="26" containingFunctionPresentation="method 'AddUserInformationAsync'">
+            <startOffsets>
+              <option value="860" />
+            </startOffsets>
+            <endOffsets>
+              <option value="951" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/InimcoTestBackend/Application/UserInformationService.cs</url>
+          <line>36</line>
+          <properties documentPath="$PROJECT_DIR$/InimcoTestBackend/Application/UserInformationService.cs" initialLine="31" containingFunctionPresentation="method 'AddUserInformationAsync'">
+            <startOffsets>
+              <option value="1337" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1404" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/InimcoTestBackend/Application/UserInformationService.cs</url>
+          <line>41</line>
+          <properties documentPath="$PROJECT_DIR$/InimcoTestBackend/Application/UserInformationService.cs" initialLine="36" containingFunctionPresentation="method 'AddUserInformationAsync'">
+            <startOffsets>
+              <option value="1531" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1602" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

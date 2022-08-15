@@ -1,4 +1,4 @@
-using JetBrains.Annotations;
+using InimcoTestBackend.Application.Response;
 
 namespace InimcoTestBackend.Application.Exceptions;
 

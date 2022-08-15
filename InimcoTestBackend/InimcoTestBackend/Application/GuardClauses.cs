@@ -1,6 +1,6 @@
 using Ardalis.GuardClauses;
 using InimcoTestBackend.Application.Exceptions;
-using InimcoTestBackend.Application.RequestObjects;
+using InimcoTestBackend.Application.Input;
 using InimcoTestBackend.Domain;
 
 namespace InimcoTestBackend.Application;
@@ -21,7 +21,7 @@ public static class GuardClauses
             1 => throw exceptions[0],
             > 1 => throw new AggregateApplicationException(exceptions),
             _ => new UserInformation(input.FirstName!, input.LastName!, input.SocialSkills!.Select(s => s!),
-                input.SocialAccounts!.Select(sa => new SocialAccount(sa.Type, sa.Address!)))
+                input.SocialAccounts!.Select(sa => new SocialAccount(Enum.Parse<SocialAccountType>(sa.Type!), sa.Address!)))
         };
     }
 
@@ -49,16 +49,37 @@ public static class GuardClauses
             exceptions.Add(new SocialSkillsContainsNullValueException());
     }
 
-    private static void SocialAccountsValidation(IEnumerable<SocialAccountInput>? inputSocialAccounts, List<AApplicationException> exceptions)
+    private static void SocialAccountsValidation(IEnumerable<SocialAccountInput>? inputSocialAccounts,
+        List<AApplicationException> exceptions)
     {
-        if(inputSocialAccounts == null)
+        if (inputSocialAccounts == null)
+        {
             exceptions.Add(new SocialAccountsNullException());
-        else if(inputSocialAccounts.Any(sai => string.IsNullOrEmpty(sai.Address)))
-            exceptions.Add(new SocialAccountsContainsNullAddressValueException());
+        }
+        else
+        {
+            var socialAccountInputs = inputSocialAccounts as SocialAccountInput[] ?? inputSocialAccounts.ToArray();
+            if(socialAccountInputs.Contains(null))
+                exceptions.Add(new SocialAccountsContainsNullValueException());
+            else
+            {
+                if (socialAccountInputs.Any(sai => string.IsNullOrEmpty(sai.Address)))
+                    exceptions.Add(new SocialAccountsContainsNullAddressValueException());
+                if(socialAccountInputs.Any(sai => string.IsNullOrEmpty(sai.Type)))
+                    exceptions.Add(new SocialAccountsContainsNullTypeValueException());
+                else if(socialAccountInputs.Any(sai => SocialAccountTypeInvalid(sai.Type!)))
+                    exceptions.Add(new SocialAccountsContainsInvalidTypeValueException());
+            }
+        }
     }
 
     private static bool NameInvalid(string name)
     {
         return !name.All(c => char.IsLetter(c) || char.IsWhiteSpace(c) || c == '-');
+    }
+
+    private static bool SocialAccountTypeInvalid(string type)
+    {
+        return !Enum.TryParse(typeof(SocialAccountType), type, true, out _);
     }
 }

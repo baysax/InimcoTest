@@ -1,4 +1,4 @@
-namespace InimcoTestBackend.Application.RequestObjects;
+namespace InimcoTestBackend.Application.Input;
 
 public record UserInformationInput(string? FirstName, string? LastName, IEnumerable<string?>? SocialSkills,
-    IEnumerable<SocialAccountInput>? SocialAccounts);
+    IEnumerable<SocialAccountInput?>? SocialAccounts);

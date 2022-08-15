@@ -8,14 +8,14 @@ public class UserInformationFileRepository: IUserInformationRepository
 {
     private const string FileName = "UserInformations.json";
 
-    public async Task SaveUserInformation(UserInformation userInformation)
+    public async Task SaveUserInformationAsync(UserInformation userInformation)
     {
         var userInformations = File.Exists(FileName)
-            ? (await GetAllUserInformations()).ToList()
+            ? (await GetAllUserInformationsAsync()).ToList()
             : new List<UserInformation>();
 
         userInformations.Add(userInformation);
-        await File.WriteAllTextAsync(JsonSerializer.Serialize(userInformations), FileName);
+        await File.WriteAllTextAsync(FileName, JsonSerializer.Serialize(userInformations));
         Console.WriteLine("UserInformation has been saved successfully");
     }
 
@@ -24,7 +24,7 @@ public class UserInformationFileRepository: IUserInformationRepository
         return Enum.GetValues<SocialAccountType>();
     }
 
-    private static async Task<IEnumerable<UserInformation>> GetAllUserInformations()
+    public async Task<IEnumerable<UserInformation>> GetAllUserInformationsAsync()
     {
         //The file needs to exist, or an exception will be thrown
         await using var fileStream = File.OpenRead(FileName);
