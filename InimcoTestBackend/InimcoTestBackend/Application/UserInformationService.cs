@@ -29,16 +29,15 @@ public class UserInformationService: IUserInformationService
         catch (AApplicationException e)
         {
             Console.WriteLine($"Input validation failed: {e.ResponseCode}");
-            if (e is AggregateApplicationException)
+            if (e is AggregateApplicationException exception)
             {
-                var ex = e as AggregateApplicationException;
-                return new Response<UserInformationFeedback>(ex!.ResponseCode, ex.Exceptions);
+                return new Response<UserInformationFeedback>(exception.ResponseCode, exception.Exceptions);
             }
             return new Response<UserInformationFeedback>(e.ResponseCode, null);
         }
         catch (Exception e)
         {
-            Console.WriteLine($"Unknown exception: {e.Message}");
+            Console.WriteLine($"Unexpected exception: {e.Message}");
             return new Response<UserInformationFeedback>(ResponseCode.Other, null);
         }
     }
@@ -52,7 +51,7 @@ public class UserInformationService: IUserInformationService
         }
         catch (Exception e)
         {
-            Console.WriteLine($"Unknown exception: {e.Message}");
+            Console.WriteLine($"Unexpected exception: {e.Message}");
             return new Response<IEnumerable<SocialAccountType>>(ResponseCode.Other, null);
         }
     }

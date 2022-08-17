@@ -28,6 +28,7 @@ public class UserInformationFileRepositoryTests
     {
         var userInformation = CreateValidUserInformation();
 
+        //Don't await this, because the check needs to happen sequentially after the save
         Repo.SaveUserInformationAsync(userInformation);
         
         Assert.IsTrue(File.Exists(FileName), $"The file {FileName} was not created");

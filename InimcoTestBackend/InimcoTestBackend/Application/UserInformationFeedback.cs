@@ -2,10 +2,10 @@ using InimcoTestBackend.Domain;
 
 namespace InimcoTestBackend.Application;
 
-public record UserInformationFeedback(UserInformation UserInformation)
+public record UserInformationFeedback(UserInformation Request)
 {
-    public int VowelsCount => UserInformation.CountVowelsInFirstAndLastName();
-    public int ConsonantsCount => UserInformation.CountConsonantsInFirstAndLastName();
-    public string FullName => $"{UserInformation.FirstName} {UserInformation.LastName}";
-    public string ReverseFullName => $"{UserInformation.ReverseLastName()} {UserInformation.ReverseFirstName()}";
+    public int VowelsCount => Request.CountVowelsInFirstAndLastName();
+    public int ConsonantsCount => Request.CountConsonantsInFirstAndLastName();
+    public string FullName => $"{Request.FirstName} {Request.LastName}";
+    public string ReverseFullName => $"{Request.ReverseLastName()} {Request.ReverseFirstName()}";
 }

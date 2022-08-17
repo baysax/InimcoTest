@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-sm-5">
+        <form>
+            <h3>Name</h3>
+            <div class="row">
+                <div class="col-sm-3 form-group">
+                    <label for="firstName">First name</label>
+                    <input name="firstName" type="text" id="firstName" class="form-control" [(ngModel)]="firstName">
+                </div>
+                <div class="col-sm-4 form-group">
+                    <label for="lastName">Last name</label>
+                    <input name="lastName" type="text" id="lastName" class="form-control" [(ngModel)]="lastName">
+                </div>
+            </div>
+            <h3>Social skills</h3>
+            <div class="form-group">
+                <div *ngFor="let socialSkill of socialSkills" class="row">
+                    <div class="col-sm-5 form-group">
+                        <label for="type">Skill</label>
+                        <input type="text" id="type" class="form-control" [value]="socialSkill" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5 form-group">
+                        <label for="skill">Skill</label>
+                        <input type="text" id="skill" class="form-control" #socialSkill>
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="btn" type="button" value="Add social skill" (click)="addSocialSkill(socialSkill)">
+                    </div>
+                </div>
+            </div>
+            <h3>Social accounts</h3>
+            <div class="form-group">
+                <div *ngFor="let socialAccount of socialAccounts" class="row">
+                    <div class="col-sm-5 form-group">
+                        <label for="type">Type</label>
+                        <input type="text" id="type" class="form-control" [value]="socialAccount.type" readonly>
+                    </div>
+                    <div class="col-sm-5 form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" class="form-control" [value]="socialAccount.address" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5 form-group">
+                        <label for="type">Type</label>
+                        <select name="type" id="type" class="form-control" #socialAccountType>
+                            <option *ngFor="let type of socialAccountTypes" [value]="type">{{type}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-5 form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" class="form-control" #socialAccountAddress>
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="btn" type="button" value="Add social account"
+                            (click)="addSocialAccount(socialAccountType, socialAccountAddress)">
+                    </div>
+                </div>
+            </div>
+            <input type="button" class="btn btn-primary" (click)="sendRequest()" value="Send">
+        </form>
+        <br />
+        <div *ngIf="hasResponse">
+            <app-result [userInformationResponse]="userInformationResponse"></app-result>
+        </div>
+    </div>
+</div>
