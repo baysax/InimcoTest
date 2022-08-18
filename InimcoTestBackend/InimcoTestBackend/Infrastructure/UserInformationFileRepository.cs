@@ -15,7 +15,8 @@ public class UserInformationFileRepository: IUserInformationRepository
             : new List<UserInformation>();
 
         userInformations.Add(userInformation);
-        await File.WriteAllTextAsync(FileName, JsonSerializer.Serialize(userInformations));
+        await File.WriteAllTextAsync(FileName,
+            JsonSerializer.Serialize(userInformations, new JsonSerializerOptions {WriteIndented = true}));
         Console.WriteLine("UserInformation has been saved successfully");
     }
 
@@ -28,6 +29,7 @@ public class UserInformationFileRepository: IUserInformationRepository
     {
         //The file needs to exist, or an exception will be thrown
         await using var fileStream = File.OpenRead(FileName);
+        if (fileStream.Length == 0) return new List<UserInformation>();
         return await JsonSerializer.DeserializeAsync<IEnumerable<UserInformation>>(fileStream) ?? new List<UserInformation>();
     }
     
