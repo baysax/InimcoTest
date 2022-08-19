@@ -65,5 +65,8 @@
         <div *ngIf="hasResponse">
             <app-result [userInformationResponse]="userInformationResponse"></app-result>
         </div>
+        <div *ngIf="hasError">
+            <app-result [errorResponse]="errorResponse"></app-result>
+        </div>
     </div>
 </div>

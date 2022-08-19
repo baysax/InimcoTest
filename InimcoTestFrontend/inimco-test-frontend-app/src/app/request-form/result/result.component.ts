@@ -8,16 +8,23 @@ import { UserInformationResponse } from 'src/models/user-information-response.mo
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
-  @Input() userInformationResponse: UserInformationResponse = new UserInformationResponse(new UserInformationRequest('', '', [], []), 0, 0, '', '');
+  @Input() userInformationResponse: UserInformationResponse | undefined;
+  @Input() errorResponse: any
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  getJsonStringOfRequest(): string{
-    let res = JSON.stringify(this.userInformationResponse.request, null, '\t');
-    console.log(res);
-    return res;
+  getTextAreaContent(): string{
+    if(this.userInformationResponse != undefined){
+      return `
+      The number of vowels: ${this.userInformationResponse.vowelsCount}
+      The number of consonants: ${this.userInformationResponse.consonantsCount}
+      The firstName + lastName entered: ${this.userInformationResponse.fullName}
+      The reverse version of the firstname and lastname: ${this.userInformationResponse.reverseFullName}
+      The JSON format of the entire object: ${JSON.stringify(this.userInformationResponse.request, null, '\t')}
+      `;
+    }
+    return JSON.stringify(this.errorResponse, null, '\t');
   }
-
 }

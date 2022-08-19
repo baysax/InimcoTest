@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ErrorResponse } from 'src/models/error-response.model';
 import { UserInformationRequest } from 'src/models/request.model';
 import { SocialAccount } from 'src/models/social-account.model';
 import { UserInformationResponse } from 'src/models/user-information-response.model';
@@ -15,8 +16,10 @@ export class RequestFormComponent implements OnInit {
   socialSkills: string[] = [];
   socialAccounts: SocialAccount[] = [];
   hasResponse = false;
-  userInformationResponse: UserInformationResponse = new UserInformationResponse(new UserInformationRequest('', '', [], []), 0, 0, '', '');
-  socialAccountTypes: string[] = []
+  hasError = false;
+  userInformationResponse: UserInformationResponse | undefined;
+  errorResponse: any; 
+  socialAccountTypes: string[] = [];
 
   constructor(private http: HttpClient) {
 
@@ -42,10 +45,16 @@ export class RequestFormComponent implements OnInit {
 
   sendRequest(){
     let request = new UserInformationRequest(this.firstName, this.lastName, this.socialSkills, this.socialAccounts);
-    this.http.post("http://localhost:5400/userinformation", request).subscribe((response) => {
-      this.hasResponse = true;
-      this.userInformationResponse = <UserInformationResponse> response; //UserInformationResponse.fromJSON(JSON.stringify(response));
-    })
+    this.http.post("http://localhost:5400/userinformation", request).subscribe(
+      (response) => {
+        this.hasResponse = true;
+        this.userInformationResponse = <UserInformationResponse> response; //UserInformationResponse.fromJSON(JSON.stringify(response));
+      },
+      (error) => {
+        this.hasError = true;
+        this.errorResponse = error;
+      }
+    )
     this.firstName = '';
     this.lastName = '';
     this.socialSkills = [];
