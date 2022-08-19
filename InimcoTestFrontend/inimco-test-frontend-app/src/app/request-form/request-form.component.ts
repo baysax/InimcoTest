@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ErrorResponse } from 'src/models/error-response.model';
 import { UserInformationRequest } from 'src/models/request.model';
 import { SocialAccount } from 'src/models/social-account.model';
 import { UserInformationResponse } from 'src/models/user-information-response.model';

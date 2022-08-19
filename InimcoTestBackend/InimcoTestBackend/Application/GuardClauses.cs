@@ -5,8 +5,19 @@ using InimcoTestBackend.Domain;
 
 namespace InimcoTestBackend.Application;
 
+/// <summary>
+/// This static class contains all input validation. Throws the correct exception when input is invalid.
+/// </summary>
 public static class GuardClauses
 {
+    /// <summary>
+    /// Extension method of IGuardClause. Validates UserInformationInput. Returns a UserInformation object when input is valid.
+    /// </summary>
+    /// <param name="guardClause">Extension method of <c>IGuardClause</c></param>
+    /// <param name="input">The input of the service call</param>
+    /// <returns></returns>
+    /// <exception cref="AApplicationException">When only a single input validation failed</exception>
+    /// <exception cref="AggregateApplicationException">When multiple input validations failed</exception>
     public static UserInformation UserInformationInvalidInput(this IGuardClause guardClause, UserInformationInput input)
     {
         var exceptions = new List<AApplicationException>();

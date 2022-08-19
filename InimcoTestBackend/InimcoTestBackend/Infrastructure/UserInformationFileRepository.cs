@@ -4,6 +4,9 @@ using InimcoTestBackend.Domain;
 
 namespace InimcoTestBackend.Infrastructure;
 
+/// <summary>
+/// Saves/manipulates all data in a JSON file.
+/// </summary>
 public class UserInformationFileRepository: IUserInformationRepository
 {
     private const string FileName = "UserInformations.json";
@@ -27,7 +30,7 @@ public class UserInformationFileRepository: IUserInformationRepository
 
     public async Task<IEnumerable<UserInformation>> GetAllUserInformationsAsync()
     {
-        //The file needs to exist, or an exception will be thrown
+        //The file needs to exist, or a FileNotFoundException will be thrown
         await using var fileStream = File.OpenRead(FileName);
         if (fileStream.Length == 0) return new List<UserInformation>();
         return await JsonSerializer.DeserializeAsync<IEnumerable<UserInformation>>(fileStream) ?? new List<UserInformation>();

@@ -91,6 +91,11 @@
       <updated>1660287341235</updated>
       <workItem from="1660287348008" duration="15734000" />
       <workItem from="1660578168059" duration="7556000" />
+      <workItem from="1660587052702" duration="1002000" />
+      <workItem from="1660661768170" duration="626000" />
+      <workItem from="1660728195182" duration="3842000" />
+      <workItem from="1660851989018" duration="1735000" />
+      <workItem from="1660896851548" duration="1598000" />
     </task>
     <task id="LOCAL-00001" summary="Backend: everything up until the REST api">
       <created>1660307152833</created>
@@ -123,50 +128,5 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Backend: everything up until the REST api" />
     <option name="LAST_COMMIT_MESSAGE" value="Backend: everything up until the REST api" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/InimcoTestBackend/Application/UserInformationService.cs</url>
-          <line>26</line>
-          <properties documentPath="$PROJECT_DIR$/InimcoTestBackend/Application/UserInformationService.cs" initialLine="26" containingFunctionPresentation="method 'AddUserInformationAsync'">
-            <startOffsets>
-              <option value="860" />
-            </startOffsets>
-            <endOffsets>
-              <option value="951" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/InimcoTestBackend/Application/UserInformationService.cs</url>
-          <line>36</line>
-          <properties documentPath="$PROJECT_DIR$/InimcoTestBackend/Application/UserInformationService.cs" initialLine="31" containingFunctionPresentation="method 'AddUserInformationAsync'">
-            <startOffsets>
-              <option value="1337" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1404" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/InimcoTestBackend/Application/UserInformationService.cs</url>
-          <line>41</line>
-          <properties documentPath="$PROJECT_DIR$/InimcoTestBackend/Application/UserInformationService.cs" initialLine="36" containingFunctionPresentation="method 'AddUserInformationAsync'">
-            <startOffsets>
-              <option value="1531" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1602" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

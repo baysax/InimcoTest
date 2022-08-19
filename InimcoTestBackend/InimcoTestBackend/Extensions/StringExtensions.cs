@@ -1,5 +1,8 @@
 namespace InimcoTestBackend.Extensions;
 
+/// <summary>
+/// Extension methods for strings
+/// </summary>
 public static class StringExtensions
 {
     private static readonly char[] Vowels = {'a', 'e', 'i', 'o', 'u'};
